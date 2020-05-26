@@ -34,7 +34,7 @@ function factorial(f) {
     let total = f
 
     for (let i = f - 1; i > 0; i--) {
-        total = multiply(total, 1)
+        total = multiply(total, i)
     }
     return total
 }
@@ -48,14 +48,19 @@ function fibonacci(p) {
     let total2 = 1
     let sumOfPrev2
 
-    for (let i = 3; i <= p; i++) {
-        sumOfPrev2 = add(total2, total3)
-        total1 = total3;
-        total2 = sumOfPrev2
-        total.push = sumOfPrev2
+    if (p === 1) {
+        return 0
     }
-    console.log(total)
+    if (p === 2) {
+        return 1
+    }
+
+    for (let i = 3; i <= p; i++) {
+        sumOfPrev2 = add(total1, total2)
+        total1 = total2;
+        total2 = sumOfPrev2
+    }
     return sumOfPrev2
 }
 
-console.log(fibonacci(5))
+console.log(fibonacci(8))
